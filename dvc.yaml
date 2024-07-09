@@ -34,7 +34,7 @@ stages:
       - BATCH_SIZE
       - AUGMENTATION
     outs:
-      - artifacts/training/model.keras
+      - artifacts/training/model.h5
 
 
   evaluation:
@@ -42,7 +42,7 @@ stages:
     deps:
       - src/cnnClassifier/pipeline/stage_04_evaluation.py
       - config/config.yaml
-      - artifacts/data_ingestion/chicken-fescal-images
+      - artifacts/data_ingestion/chicken-fecal-images
       - artifacts/training/model.h5
     params:
       - IMAGE_SIZE

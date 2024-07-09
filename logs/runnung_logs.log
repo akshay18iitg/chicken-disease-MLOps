@@ -223,3 +223,47 @@ x==========x]
 [2024-07-08 18:08:08,699: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
 [2024-07-08 18:08:08,699: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
 [2024-07-08 18:08:08,699: INFO: utils: created directory at: artifacts/training]
+[2024-07-08 18:14:33,371: INFO: stage_03_training: *******************]
+[2024-07-08 18:14:33,371: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 18:14:33,372: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:14:33,372: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:14:33,372: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:14:33,372: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 18:14:33,372: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 18:14:33,373: INFO: utils: created directory at: artifacts/training]
+[2024-07-08 18:15:11,148: INFO: stage_03_training: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2024-07-08 18:17:47,494: INFO: stage_04_evaluation: *******************]
+[2024-07-08 18:17:47,494: INFO: stage_04_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-07-08 18:17:47,495: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:17:47,495: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:17:47,495: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:17:47,496: ERROR: stage_04_evaluation: [Errno 2] Unable to open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)]
+Traceback (most recent call last):
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_04_evaluation.py", line 31, in <module>
+    obj.main()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_04_evaluation.py", line 21, in main
+    evaluation.evaluation()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/evaluation.py", line 44, in evaluation
+    model = self.load_model(self.config.path_of_model)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/evaluation.py", line 40, in load_model
+    return tf.keras.models.load_model(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/saving/saving_api.py", line 189, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/legacy/saving/legacy_h5_format.py", line 116, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/h5py/_hl/files.py", line 562, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/h5py/_hl/files.py", line 235, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)

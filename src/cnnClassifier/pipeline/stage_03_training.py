@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from cnnClassifier.config.configuration import ConfigurationManager
 from cnnClassifier.components.prepare_callbacks import PrepareCallback
 from cnnClassifier.components.training import Training
