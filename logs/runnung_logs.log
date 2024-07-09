@@ -34,3 +34,192 @@ Source-Age: 0
 [2024-07-08 17:30:58,088: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
 
 x==========x]
+[2024-07-08 17:49:53,232: INFO: stage_02_prepare_base_model: *******************]
+[2024-07-08 17:49:53,232: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-07-08 17:49:53,234: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 17:49:53,235: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 17:49:53,235: INFO: utils: created directory at: artifacts]
+[2024-07-08 17:49:53,235: INFO: utils: created directory at: artifacts/prepare_base_model]
+[2024-07-08 17:49:57,069: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-07-08 17:49:57,182: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-07-08 17:49:57,259: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-07-08 17:57:50,053: INFO: stage_03_training: *******************]
+[2024-07-08 17:57:50,053: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 17:57:50,054: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 17:57:50,054: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 17:57:50,055: INFO: utils: created directory at: artifacts]
+[2024-07-08 17:57:50,055: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 17:57:50,055: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 17:57:50,055: ERROR: stage_03_training: The filepath provided must end in `.keras` (Keras model format). Received: filepath=artifacts/prepare_callbacks/checkpoint_dir/model.h5]
+Traceback (most recent call last):
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 38, in <module>
+    obj.main()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 19, in main
+    callback_list = prepare_callbacks.get_tb_ckpt_callbacks()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/prepare_callbacks.py", line 36, in get_tb_ckpt_callbacks
+    self._create_ckpt_callbacks
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/prepare_callbacks.py", line 27, in _create_ckpt_callbacks
+    return tf.keras.callbacks.ModelCheckpoint(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/callbacks/model_checkpoint.py", line 191, in __init__
+    raise ValueError(
+ValueError: The filepath provided must end in `.keras` (Keras model format). Received: filepath=artifacts/prepare_callbacks/checkpoint_dir/model.h5
+[2024-07-08 17:58:32,503: INFO: stage_03_training: *******************]
+[2024-07-08 17:58:32,504: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 17:58:32,505: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 17:58:32,505: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 17:58:32,505: INFO: utils: created directory at: artifacts]
+[2024-07-08 17:58:32,505: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 17:58:32,505: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 17:58:32,505: ERROR: stage_03_training: The filepath provided must end in `.keras` (Keras model format). Received: filepath=artifacts/prepare_callbacks/checkpoint_dir/model.h5]
+Traceback (most recent call last):
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 38, in <module>
+    obj.main()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 19, in main
+    callback_list = prepare_callbacks.get_tb_ckpt_callbacks()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/prepare_callbacks.py", line 36, in get_tb_ckpt_callbacks
+    self._create_ckpt_callbacks
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/prepare_callbacks.py", line 27, in _create_ckpt_callbacks
+    return tf.keras.callbacks.ModelCheckpoint(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/callbacks/model_checkpoint.py", line 191, in __init__
+    raise ValueError(
+ValueError: The filepath provided must end in `.keras` (Keras model format). Received: filepath=artifacts/prepare_callbacks/checkpoint_dir/model.h5
+[2024-07-08 17:58:40,344: INFO: stage_03_training: *******************]
+[2024-07-08 17:58:40,344: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 17:58:40,345: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 17:58:40,346: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 17:58:40,346: INFO: utils: created directory at: artifacts]
+[2024-07-08 17:58:40,346: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 17:58:40,346: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 17:58:40,346: ERROR: stage_03_training: The filepath provided must end in `.keras` (Keras model format). Received: filepath=artifacts/prepare_callbacks/checkpoint_dir/model.h5]
+Traceback (most recent call last):
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 38, in <module>
+    obj.main()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 19, in main
+    callback_list = prepare_callbacks.get_tb_ckpt_callbacks()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/prepare_callbacks.py", line 36, in get_tb_ckpt_callbacks
+    self._create_ckpt_callbacks
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/prepare_callbacks.py", line 27, in _create_ckpt_callbacks
+    return tf.keras.callbacks.ModelCheckpoint(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/callbacks/model_checkpoint.py", line 191, in __init__
+    raise ValueError(
+ValueError: The filepath provided must end in `.keras` (Keras model format). Received: filepath=artifacts/prepare_callbacks/checkpoint_dir/model.h5
+[2024-07-08 18:02:06,595: INFO: stage_03_training: *******************]
+[2024-07-08 18:02:06,595: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 18:02:06,596: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:02:06,596: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:02:06,597: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:02:06,597: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 18:02:06,597: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 18:02:06,597: INFO: utils: created directory at: artifacts/training]
+[2024-07-08 18:02:06,597: ERROR: stage_03_training: File not found: filepath=artifacts/prepare_base_model/base_model_updated.keras. Please ensure the file is an accessible `.keras` zip file.]
+Traceback (most recent call last):
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 38, in <module>
+    obj.main()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 24, in main
+    training.get_base_model()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/training.py", line 11, in get_base_model
+    self.model = tf.keras.models.load_model(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/saving/saving_api.py", line 193, in load_model
+    raise ValueError(
+ValueError: File not found: filepath=artifacts/prepare_base_model/base_model_updated.keras. Please ensure the file is an accessible `.keras` zip file.
+[2024-07-08 18:03:07,177: INFO: stage_03_training: *******************]
+[2024-07-08 18:03:07,177: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 18:03:07,178: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:03:07,179: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:03:07,179: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:03:07,179: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 18:03:07,179: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 18:03:07,179: INFO: utils: created directory at: artifacts/training]
+[2024-07-08 18:03:07,179: ERROR: stage_03_training: File not found: filepath=artifacts/prepare_base_model/base_model_updated.keras. Please ensure the file is an accessible `.keras` zip file.]
+Traceback (most recent call last):
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 38, in <module>
+    obj.main()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 24, in main
+    training.get_base_model()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/training.py", line 11, in get_base_model
+    self.model = tf.keras.models.load_model(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/saving/saving_api.py", line 193, in load_model
+    raise ValueError(
+ValueError: File not found: filepath=artifacts/prepare_base_model/base_model_updated.keras. Please ensure the file is an accessible `.keras` zip file.
+[2024-07-08 18:06:34,182: INFO: stage_03_training: *******************]
+[2024-07-08 18:06:34,182: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 18:06:34,183: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:06:34,183: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:06:34,183: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:06:34,184: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 18:06:34,184: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 18:06:34,184: INFO: utils: created directory at: artifacts/training]
+[2024-07-08 18:06:34,184: ERROR: stage_03_training: File not found: filepath=artifacts/prepare_base_model/base_model_updated.keras. Please ensure the file is an accessible `.keras` zip file.]
+Traceback (most recent call last):
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 38, in <module>
+    obj.main()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 24, in main
+    training.get_base_model()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/training.py", line 11, in get_base_model
+    self.model = tf.keras.models.load_model(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/saving/saving_api.py", line 193, in load_model
+    raise ValueError(
+ValueError: File not found: filepath=artifacts/prepare_base_model/base_model_updated.keras. Please ensure the file is an accessible `.keras` zip file.
+[2024-07-08 18:07:37,601: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-07-08 18:07:37,602: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:07:37,603: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:07:37,603: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:07:37,603: INFO: utils: created directory at: artifacts/data_ingestion]
+[2024-07-08 18:07:38,712: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 11616915
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "adf745abc03891fe493c3be264ec012691fe3fa21d861f35a27edbe6d86a76b1"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: C954:3FF3:3A71253:3BE17F5:668C84BF
+Accept-Ranges: bytes
+Date: Tue, 09 Jul 2024 01:07:38 GMT
+Via: 1.1 varnish
+X-Served-By: cache-bur-kbur8200042-BUR
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1720487258.934184,VS0,VE130
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 8baac785ec611e31e5cf00968201013c7887bfac
+Expires: Tue, 09 Jul 2024 01:12:38 GMT
+Source-Age: 0
+
+]
+[2024-07-08 18:07:38,845: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-07-08 18:07:42,779: INFO: stage_02_prepare_base_model: *******************]
+[2024-07-08 18:07:42,780: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-07-08 18:07:42,780: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:07:42,781: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:07:42,781: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:07:42,781: INFO: utils: created directory at: artifacts/prepare_base_model]
+[2024-07-08 18:07:43,990: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-07-08 18:08:08,697: INFO: stage_03_training: *******************]
+[2024-07-08 18:08:08,697: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 18:08:08,698: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:08:08,698: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:08:08,699: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:08:08,699: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 18:08:08,699: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 18:08:08,699: INFO: utils: created directory at: artifacts/training]
