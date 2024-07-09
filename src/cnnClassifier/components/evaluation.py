@@ -2,6 +2,7 @@ import tensorflow as tf
 from pathlib import Path
 from cnnClassifier.entity.config_entity import EvaluationConfig
 from cnnClassifier.utils.utils import save_json
+from tensorflow.keras.models import load_model
 
 
 
@@ -36,12 +37,12 @@ class Evaluation:
 
     
     @staticmethod
-    def load_model(path: Path) -> tf.keras.Model:
-        return tf.keras.models.load_model(path)
+    def load(path: Path) -> tf.keras.Model:
+        return load_model(path)
     
 
     def evaluation(self):
-        model = self.load_model(self.config.path_of_model)
+        model = self.load(self.config.path_of_model)
         self._valid_generator()
         self.score = model.evaluate(self.valid_generator)
 

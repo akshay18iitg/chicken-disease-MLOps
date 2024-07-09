@@ -267,3 +267,263 @@ Traceback (most recent call last):
   File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
   File "h5py/h5f.pyx", line 102, in h5py.h5f.open
 FileNotFoundError: [Errno 2] Unable to open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2024-07-08 18:30:16,609: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-07-08 18:30:16,610: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:30:16,611: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:30:16,611: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:30:16,611: INFO: utils: created directory at: artifacts/data_ingestion]
+[2024-07-08 18:30:17,683: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 11616915
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "adf745abc03891fe493c3be264ec012691fe3fa21d861f35a27edbe6d86a76b1"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: C954:3FF3:3A71253:3BE17F5:668C84BF
+Accept-Ranges: bytes
+Date: Tue, 09 Jul 2024 01:30:17 GMT
+Via: 1.1 varnish
+X-Served-By: cache-bur-kbur8200107-BUR
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1720488617.989970,VS0,VE136
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: df37e5198762c057e28ab3085e2f307241265280
+Expires: Tue, 09 Jul 2024 01:35:17 GMT
+Source-Age: 0
+
+]
+[2024-07-08 18:30:17,777: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-07-08 18:30:21,737: INFO: stage_02_prepare_base_model: *******************]
+[2024-07-08 18:30:21,737: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-07-08 18:30:21,738: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:30:21,738: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:30:21,738: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:30:21,738: INFO: utils: created directory at: artifacts/prepare_base_model]
+[2024-07-08 18:30:22,042: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-07-08 18:30:22,203: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-07-08 18:30:22,377: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-07-08 18:30:25,125: INFO: stage_03_training: *******************]
+[2024-07-08 18:30:25,125: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 18:30:25,126: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:30:25,126: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:30:25,126: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:30:25,126: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 18:30:25,126: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 18:30:25,126: ERROR: stage_03_training: The filepath provided must end in `.keras` (Keras model format). Received: filepath=artifacts/prepare_callbacks/checkpoint_dir/model.h5]
+Traceback (most recent call last):
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 40, in <module>
+    obj.main()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 21, in main
+    callback_list = prepare_callbacks.get_tb_ckpt_callbacks()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/prepare_callbacks.py", line 36, in get_tb_ckpt_callbacks
+    self._create_ckpt_callbacks
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/prepare_callbacks.py", line 27, in _create_ckpt_callbacks
+    return tf.keras.callbacks.ModelCheckpoint(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/callbacks/model_checkpoint.py", line 191, in __init__
+    raise ValueError(
+ValueError: The filepath provided must end in `.keras` (Keras model format). Received: filepath=artifacts/prepare_callbacks/checkpoint_dir/model.h5
+[2024-07-08 18:33:22,084: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-07-08 18:33:22,087: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:33:22,088: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:33:22,088: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:33:22,089: INFO: utils: created directory at: artifacts/data_ingestion]
+[2024-07-08 18:33:23,091: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 11616915
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "adf745abc03891fe493c3be264ec012691fe3fa21d861f35a27edbe6d86a76b1"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: C954:3FF3:3A71253:3BE17F5:668C84BF
+Accept-Ranges: bytes
+Date: Tue, 09 Jul 2024 01:33:22 GMT
+Via: 1.1 varnish
+X-Served-By: cache-bur-kbur8200077-BUR
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1720488802.440902,VS0,VE1
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 90fa063f3bf6acc36962b58ea6d8b8d49dfd1465
+Expires: Tue, 09 Jul 2024 01:38:22 GMT
+Source-Age: 185
+
+]
+[2024-07-08 18:33:23,188: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-07-08 18:33:25,997: INFO: stage_02_prepare_base_model: *******************]
+[2024-07-08 18:33:25,997: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-07-08 18:33:25,998: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:33:25,998: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:33:25,998: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:33:25,998: INFO: utils: created directory at: artifacts/prepare_base_model]
+[2024-07-08 18:33:26,270: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-07-08 18:33:26,455: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-07-08 18:33:26,661: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-07-08 18:33:29,394: INFO: stage_03_training: *******************]
+[2024-07-08 18:33:29,394: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 18:33:29,395: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:33:29,396: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:33:29,396: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:33:29,396: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 18:33:29,396: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 18:33:29,396: ERROR: stage_03_training: The filepath provided must end in `.keras` (Keras model format). Received: filepath=artifacts/prepare_callbacks/checkpoint_dir/model.h5]
+Traceback (most recent call last):
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 40, in <module>
+    obj.main()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_03_training.py", line 21, in main
+    callback_list = prepare_callbacks.get_tb_ckpt_callbacks()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/prepare_callbacks.py", line 36, in get_tb_ckpt_callbacks
+    self._create_ckpt_callbacks
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/prepare_callbacks.py", line 27, in _create_ckpt_callbacks
+    return tf.keras.callbacks.ModelCheckpoint(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/callbacks/model_checkpoint.py", line 191, in __init__
+    raise ValueError(
+ValueError: The filepath provided must end in `.keras` (Keras model format). Received: filepath=artifacts/prepare_callbacks/checkpoint_dir/model.h5
+[2024-07-08 18:34:58,210: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-07-08 18:34:58,211: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:34:58,212: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:34:58,212: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:34:58,212: INFO: utils: created directory at: artifacts/data_ingestion]
+[2024-07-08 18:34:59,448: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 11616915
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "adf745abc03891fe493c3be264ec012691fe3fa21d861f35a27edbe6d86a76b1"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: C954:3FF3:3A71253:3BE17F5:668C84BF
+Accept-Ranges: bytes
+Date: Tue, 09 Jul 2024 01:34:58 GMT
+Via: 1.1 varnish
+X-Served-By: cache-bur-kbur8200045-BUR
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1720488898.450621,VS0,VE1
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 1c11d30542d4991e7db90e3ef6ffa360a43ce8e6
+Expires: Tue, 09 Jul 2024 01:39:58 GMT
+Source-Age: 281
+
+]
+[2024-07-08 18:34:59,562: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-07-08 18:35:02,551: INFO: stage_02_prepare_base_model: *******************]
+[2024-07-08 18:35:02,551: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-07-08 18:35:02,552: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:35:02,553: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:35:02,553: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:35:02,553: INFO: utils: created directory at: artifacts/prepare_base_model]
+[2024-07-08 18:35:03,900: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-07-08 18:35:07,937: INFO: stage_03_training: *******************]
+[2024-07-08 18:35:07,937: INFO: stage_03_training: >>>>>> stage Training started <<<<<<]
+[2024-07-08 18:35:07,938: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:35:07,938: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:35:07,938: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:35:07,938: INFO: utils: created directory at: artifacts/prepare_callbacks/checkpoint_dir]
+[2024-07-08 18:35:07,939: INFO: utils: created directory at: artifacts/prepare_callbacks/tensorboard_log_dir]
+[2024-07-08 18:35:07,939: INFO: utils: created directory at: artifacts/training]
+[2024-07-08 18:35:45,248: INFO: stage_03_training: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2024-07-08 18:35:48,145: INFO: stage_04_evaluation: *******************]
+[2024-07-08 18:35:48,145: INFO: stage_04_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-07-08 18:35:48,146: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:35:48,146: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:35:48,146: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:35:48,147: ERROR: stage_04_evaluation: [Errno 2] Unable to open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)]
+Traceback (most recent call last):
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_04_evaluation.py", line 31, in <module>
+    obj.main()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/pipeline/stage_04_evaluation.py", line 21, in main
+    evaluation.evaluation()
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/evaluation.py", line 45, in evaluation
+    model = self.load(self.config.path_of_model)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/src/cnnClassifier/components/evaluation.py", line 41, in load
+    return load_model(path)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/saving/saving_api.py", line 189, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/keras/src/legacy/saving/legacy_h5_format.py", line 116, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/h5py/_hl/files.py", line 562, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akshayshah/Documents/MLOps/MLOPS-4/env/lib/python3.11/site-packages/h5py/_hl/files.py", line 235, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to open file (unable to open file: name = 'artifacts/training/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2024-07-08 18:40:39,741: INFO: stage_04_evaluation: *******************]
+[2024-07-08 18:40:39,741: INFO: stage_04_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-07-08 18:40:39,742: INFO: utils: yaml file: config/config.yaml loaded successfully]
+[2024-07-08 18:40:39,743: INFO: utils: yaml file: params.yaml loaded successfully]
+[2024-07-08 18:40:39,743: INFO: utils: created directory at: artifacts]
+[2024-07-08 18:40:51,031: INFO: utils: json file saved at: scores.json]
+[2024-07-08 18:40:51,032: INFO: stage_04_evaluation: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2024-07-09 12:38:26,924: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://10.48.140.17:80]
+[2024-07-09 12:38:26,924: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2024-07-09 12:38:46,807: ERROR: _internal: 127.0.0.1 - - [09/Jul/2024 12:38:46] code 400, message Bad request version ('ô©5')]
+[2024-07-09 12:38:46,808: ERROR: _internal: 127.0.0.1 - - [09/Jul/2024 12:38:46] code 400, message Bad request syntax ('\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03n6ïB\x82\x18ùx°ç\x99\x9dxH\x13ázûî1¬A¸ò\x8c¾')]
+[2024-07-09 12:38:46,809: INFO: _internal: 127.0.0.1 - - [09/Jul/2024 12:38:46] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03!¡üÕø²\x09.¾J\x95h\x07 Ù%¦Ð\x1c\x08\x7f|ÁéÀ½ÜÙ\x9b\x0beP \x81*ã^Í»úÉ_pÈzÑÝn#\x96©mfÖ i\x941)y\x85©`ðÖ\x00 JJ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063::\x00\x00\x003\x04ï\x04í\x8a\x8a\x00\x01\x00c\x99\x04Àmo~\x02\x13ö\x0f\x0f\x8fD¥\x91cF\x9e«K\x11h«DÊ\x03Ð\x0e?\x9b¤Äò\x0b\x12üY#\x9b\x05Q´ÖÉ²Y3ýõ\x11§<:­Ynd\x0bÐ_D1ü\x9c\x09ô©5[0m" 400 -]
+[2024-07-09 12:38:46,809: INFO: _internal: 127.0.0.1 - - [09/Jul/2024 12:38:46] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03n6ïB\x82\x18ùx°ç\x99\x9dxH\x13ázûî1¬A¸ò\x8c¾[0m" 400 -]
+[2024-07-09 12:38:46,812: ERROR: _internal: 127.0.0.1 - - [09/Jul/2024 12:38:46] code 400, message Bad request version ('\x13üÃ\x8bÌÿ¢Y_ë%¿&6')]
+[2024-07-09 12:38:46,813: INFO: _internal: 127.0.0.1 - - [09/Jul/2024 12:38:46] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03\x14ð±\x19h\x0fyp\x1f\x95ÿ\x975\x04#,uÅi\x0e\x9c b8\x1e9\x839\x00éõN 3ýUíÊ<\x84\x9cÎW\x0ci\x03åRñt\x8dç\x95Q\x81Q\x82\x12\x07\x92uú"EW\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06súú\x00\x00\x00\x0b\x00\x02\x01\x00\x00#\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x003\x04ï\x04í\x1a\x1a\x00\x01\x00c\x99\x04ÀüÒÊ\x86£¼¾Â\x13;\x91\x12OY®9-Yþ( \x13üÃ\x8bÌÿ¢Y_ë%¿&6[0m" 400 -]
+[2024-07-09 12:38:46,813: ERROR: _internal: 127.0.0.1 - - [09/Jul/2024 12:38:46] code 400, message Bad request version ('7\x10\x02\x14')]
+[2024-07-09 12:38:46,813: INFO: _internal: 127.0.0.1 - - [09/Jul/2024 12:38:46] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03 àËôÇú'Á£wµ¾`£\x95>R0gÆÓ~¶ç%\x1cÀä=èZ2 7\x10\x02\x14[0m" 400 -]
+[2024-07-09 12:39:44,053: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://10.48.140.17:80]
+[2024-07-09 12:39:44,053: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2024-07-09 12:39:47,189: ERROR: _internal: 127.0.0.1 - - [09/Jul/2024 12:39:47] code 400, message Bad request syntax ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03ÙæÅ\x9a#\x03±')]
+[2024-07-09 12:39:47,190: INFO: _internal: 127.0.0.1 - - [09/Jul/2024 12:39:47] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03ÙæÅ\x9a#\x03±[0m" 400 -]
+[2024-07-09 12:39:47,190: ERROR: _internal: 127.0.0.1 - - [09/Jul/2024 12:39:47] code 400, message Bad request version ('\xad\x13»\x12')]
+[2024-07-09 12:39:47,190: INFO: _internal: 127.0.0.1 - - [09/Jul/2024 12:39:47] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03ô¸\x8bð\x0c­\x13»\x12[0m" 400 -]
+[2024-07-09 12:39:47,191: ERROR: _internal: 127.0.0.1 - - [09/Jul/2024 12:39:47] code 400, message Bad request syntax ('\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03<o\x1b·\x92¾ãå\x8a8Wë-i')]
+[2024-07-09 12:39:47,194: INFO: _internal: 127.0.0.1 - - [09/Jul/2024 12:39:47] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03<o\x1b·\x92¾ãå\x8a8Wë-i[0m" 400 -]
+[2024-07-09 12:39:47,194: ERROR: _internal: 127.0.0.1 - - [09/Jul/2024 12:39:47] code 400, message Bad request version ('Ïå(Ñ¾BàG')]
+[2024-07-09 12:39:47,194: INFO: _internal: 127.0.0.1 - - [09/Jul/2024 12:39:47] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03¿\x1fe~nÞ¾Ñ,\x86öü\x97æv% \x1e\x0dâ\x82p!\x0dÏå(Ñ¾BàG [0m" 400 -]
+[2024-07-09 12:42:04,291: INFO: _internal: 127.0.0.1 - - [09/Jul/2024 12:42:04] "GET / HTTP/1.1" 200 -]
